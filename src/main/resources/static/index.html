@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta name='viewport'
+	content="width=device-width,initial-scale=1.0,minimum-scale=1.0">
+<title>Chat app Sample</title>
+<link href="main.css" style="stylesheet">
+<script src="/webjars/jquery/jquery.min.js"></script>
+<script src="/webjars/sockjs-client/sockjs.min.js"></script>
+<script src="/webjars/stomp-websocket/stomp.min.js"></script>
+<script src="/app.js"></script>
+</head>
+<body>
+	<noscript>
+		<h2>Sorry! Your browser doesn't support JavaScript!</h2>
+	</noscript>
+
+	<div id="pageWrapper">
+		<div id="formContainer">
+			<div class="connectForm">
+				<label for="connect">WebSocket connection:</label>
+				<button id="connect" class="btn btn-default" type="submit">Connect</button>
+				<button id="disconnect" class="btn btn-default" type="submit"
+					disabled="disabled">Disconnect</button>
+			</div>
+			<h1>Type your username and send Message!</h1>
+			<form id="messageForm" name="messageForm">
+				<label for="name">UserName</label> <input type="text" id="name"
+					placeholder="Username" /> <label for="contents">Message</label> <input
+					type="text" id="contents" placeholder="Type your message here!">
+				<button id="send" type="submit">Send</button>
+			</form>
+		</div>
+		<table id="messageArea" border="1">
+		<tr><th>名前</th><th>メッセージ</th></tr>
+		
+		</table>
+	</div>
+</body>
+</html>
