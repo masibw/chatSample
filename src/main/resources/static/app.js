@@ -13,6 +13,7 @@ function connect(){
 	stompClient.connect({},function(frame){
 		setConnected(true);
 		console.log('Connected:'+frame);
+		getAllMessages();
 		stompClient.subscribe('/topic/messages',function(message){
 			showContents(message);
 		});
@@ -31,11 +32,35 @@ function sendMessage(){
 	stompClient.send("/app/message",{},JSON.stringify({'contents':$("#contents").val(),'name':$("#name").val()}));
 	
 }
+
 function showContents(message){
 	var name= JSON.parse(message.body).name;
 	var contents=JSON.parse(message.body).contents;
 	$("#messageArea").append("<tr><th>"+name+"</th><th>"+contents+"</th></tr>");
 }
+
+function getAllMessages(){
+	let request=new  XMLHttpRequest();
+	const URL = "http://localhost:8080/api/messages";
+	request.open('GET',URL,true);
+	request.responseType = 'json';
+	request.onload=function(){
+		let data=this.response;
+		let i=0;
+		console.log(data);
+		for(i=1;i<data.length;i++){
+			var name= data[i].name;
+			var contents=data[i].contents;
+			$("#messageArea").append("<tr><th>"+name+"</th><th>"+contents+"</th></tr>");
+		}
+		
+		
+	}
+	
+	request.send();
+	
+}
+
 
 $(function () {
 	 $("form").on('submit', function (e) {

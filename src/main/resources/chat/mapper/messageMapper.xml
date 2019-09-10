@@ -7,6 +7,6 @@
 		INSERT INTO messages(name,contents) VALUES(#{name},#{contents});
 	</insert>
 	<select id="selectAll" resultType="chat.model.Message">
-		SELECT name FROM messages;
+		SELECT name,contents FROM messages;
 	</select>
 </mapper>
