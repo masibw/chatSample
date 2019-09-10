@@ -9,8 +9,8 @@ public class Message {
 	private String name;
 	@Getter @Setter
 	private String contents;
-	
-	Message(String name, String contents){
+
+	public Message(String name, String contents){
 		this.name=name;
 		this.contents=contents;
 	}
