@@ -8,5 +8,8 @@ import chat.model.Message;
 @Mapper
 public interface MessageMapper {
 	List<Message> selectAll();
-	void insert(Message message);
+	int postMessageOne(Message message);
+	Message selectOne(String id);
+	int putMessage(Message message);
+	int deleteMessageOne(String id);
 }

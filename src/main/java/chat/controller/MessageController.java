@@ -21,7 +21,12 @@ public class MessageController {
 	@MessageMapping("/message")
 	@SendTo("/topic/messages")
 	public Message sendMessage(@Payload Message message) {
-		messageMapper.insert(message);
+		int num = messageMapper.postMessageOne(message);
+		if(num==0) {
+			System.out.println("error");
+	}else {
+		System.out.println("Insert OK");
+	}
 		return message;
 	}
 }

@@ -3,10 +3,19 @@
         PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="chat.mapper.MessageMapper">
-	<insert id="insert" parameterType="chat.model.Message">
+	<insert id="postMessageOne" parameterType="chat.model.Message">
 		INSERT INTO messages(name,contents) VALUES(#{name},#{contents});
 	</insert>
 	<select id="selectAll" resultType="chat.model.Message">
 		SELECT name,contents FROM messages;
 	</select>
+	<select id="selectOne" parameterType="String" resultType="chat.model.Message">
+		SELECT name,contents FROM messages WHERE id=#{messageId};
+	</select>
+	<update id="putMessage" parameterType="chat.model.Message">
+	UPDATE messages set name=#{name},contents=#{contents} WHERE id=#{id};
+	</update>
+	<delete id="deleteMessageOne" parameterType="String">
+	DELETE FROM messages WHERE id=#{id};
+	</delete>
 </mapper>

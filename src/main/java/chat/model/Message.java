@@ -6,6 +6,8 @@ import lombok.Setter;
 
 public class Message {
 	@Getter @Setter
+	private int id;
+	@Getter @Setter
 	private String name;
 	@Getter @Setter
 	private String contents;

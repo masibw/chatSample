@@ -41,14 +41,14 @@ function showContents(message){
 
 function getAllMessages(){
 	let request=new  XMLHttpRequest();
-	const URL = "http://localhost:8080/api/messages";
+	const URL = "http://localhost:8080/api/messages/get";
 	request.open('GET',URL,true);
 	request.responseType = 'json';
 	request.onload=function(){
 		let data=this.response;
 		let i=0;
 		console.log(data);
-		for(i=1;i<data.length;i++){
+		for(i=0;i<data.length;i++){
 			var name= data[i].name;
 			var contents=data[i].contents;
 			$("#messageArea").append("<tr><th>"+name+"</th><th>"+contents+"</th></tr>");
