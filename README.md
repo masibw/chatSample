@@ -2,14 +2,14 @@
 
 <img src="https://github.com/masibw/dataStore/blob/master/output.gif">
 
-##Feature
+## Feature
 - using websocket (STOMP)
 - made with spring,Mybatis,MySQL
 - RESTAPI  Implemented
 
 
 
-##API 
+## API 
 - GET
  - All ("/api/messages/get")
  - ByID("/api/messages/get/{id}")
