@@ -1,6 +1,6 @@
 # This is a chat app works on web browser
 
-https://github.com/masibw/dataStore/blob/master/output.gif
+<img src="https://github.com/masibw/dataStore/blob/master/output.gif">
 
 ##Feature
 - using websocket (STOMP)
