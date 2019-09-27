@@ -41,7 +41,7 @@ function showContents(message){
 
 function getAllMessages(){
 	let request=new  XMLHttpRequest();
-	const URL = "http://localhost:8080/api/messages/get";
+	const URL = "http://localhost:8080/api/messages";
 	request.open('GET',URL,true);
 	request.responseType = 'json';
 	request.onload=function(){

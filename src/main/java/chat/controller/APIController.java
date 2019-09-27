@@ -19,19 +19,19 @@ public class APIController {
 	@Autowired
 	MessageMapper messageMapper;
 	
-	@RequestMapping(value="/messages/get",method=RequestMethod.GET)
+	@RequestMapping(value="/messages",method=RequestMethod.GET)
 	public List<Message> getMessagesAll(){
 		
 		List<Message> messages=messageMapper.selectAll();
 		return messages;
 	}
 	
-	@RequestMapping(value="/messages/get/{id:.+}",method=RequestMethod.GET)
+	@RequestMapping(value="/messages/{id:.+}",method=RequestMethod.GET)
 	public Message getMessagOne(@PathVariable("id")String messageId) {
 		return messageMapper.selectOne(messageId);
 	}
 	
-	@RequestMapping(value="/messages/post",method=RequestMethod.POST)
+	@RequestMapping(value="/messages",method=RequestMethod.POST)
 	public String postMessageOne(@RequestBody Message message) {
 		int num =messageMapper.postMessageOne(message);
 		if(num==0) {
@@ -41,7 +41,7 @@ public class APIController {
 		}
 	}
 	
-	@RequestMapping(value="/messages/put",method=RequestMethod.PUT)
+	@RequestMapping(value="/messages",method=RequestMethod.PUT)
 	public String putMessage(@RequestBody Message message) {
 		int num = messageMapper.putMessage(message);
 		if(num==0) {
@@ -51,7 +51,7 @@ public class APIController {
 		}
 	}
 	
-	@RequestMapping(value="/messages/delete/{id:.+}",method=RequestMethod.DELETE)
+	@RequestMapping(value="/messages/{id:.+}",method=RequestMethod.DELETE)
 	public String deleteMessageOne(@PathVariable("id")String messageId) {
 		int num = messageMapper.deleteMessageOne(messageId);
 		if(num==0) {
