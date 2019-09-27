@@ -9,10 +9,10 @@
 
 
 
-## API 
+## API ("/api/messages")
 - GET
- - All ("/api/messages/get")
- - ByID("/api/messages/get/{id}")
-- POST("/api/messages/post") with message JSON
-- DELETE("/api/messages/delete/{id}")
-- PUT("/api/messages/post") with message JSON
+ - All ("/api/messages")
+ - ByID("/api/messages/{id}")
+- POST("/api/messages")return with message JSON
+- DELETE("/api/messages/{id}")
+- PUT("/api/messages")return with message JSON
